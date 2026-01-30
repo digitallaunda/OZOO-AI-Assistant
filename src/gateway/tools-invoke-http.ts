@@ -213,13 +213,13 @@ export async function handleToolsInvokeHttpRequest(
 
   const coreToolNames = new Set(
     allTools
-      .filter((tool) => !getPluginToolMeta(tool as any))
+      .filter((tool) => !getPluginToolMeta(tool))
       .map((tool) => normalizeToolName(tool.name))
       .filter(Boolean),
   );
   const pluginGroups = buildPluginToolGroups({
     tools: allTools,
-    toolMeta: (tool) => getPluginToolMeta(tool as any),
+    toolMeta: (tool) => getPluginToolMeta(tool),
   });
   const resolvePolicy = (policy: typeof profilePolicy, label: string) => {
     const resolved = stripPluginOnlyAllowlist(policy, pluginGroups, coreToolNames);
@@ -288,12 +288,14 @@ export async function handleToolsInvokeHttpRequest(
   }
 
   try {
+    const toolSchema = "parameters" in tool ? tool.parameters : undefined;
     const toolArgs = mergeActionIntoArgsIfSupported({
-      toolSchema: (tool as any).parameters,
+      toolSchema: toolSchema as Record<string, unknown> | undefined,
       action,
       args,
     });
-    const result = await (tool as any).execute?.(`http-${Date.now()}`, toolArgs);
+    const executeMethod = "execute" in tool && typeof tool.execute === "function" ? tool.execute : null;
+    const result = executeMethod ? await executeMethod(`http-${Date.now()}`, toolArgs) : null;
     sendJson(res, 200, { ok: true, result });
   } catch (err) {
     sendJson(res, 400, {
