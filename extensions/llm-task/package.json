@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/llm-task",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo JSON-only LLM task plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

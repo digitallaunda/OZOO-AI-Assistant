@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/slack",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo Slack channel plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

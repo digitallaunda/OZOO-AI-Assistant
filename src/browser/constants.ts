@@ -1,0 +1,9 @@
+export const DEFAULT_OZZO_BROWSER_ENABLED = true;
+export const DEFAULT_BROWSER_EVALUATE_ENABLED = true;
+/** OZZO brand primary color (blue) */
+export const DEFAULT_OZZO_BROWSER_COLOR = "#0066CC";
+export const DEFAULT_OZZO_BROWSER_PROFILE_NAME = "ozzo";
+export const DEFAULT_BROWSER_DEFAULT_PROFILE_NAME = "chrome";
+export const DEFAULT_AI_SNAPSHOT_MAX_CHARS = 80_000;
+export const DEFAULT_AI_SNAPSHOT_EFFICIENT_MAX_CHARS = 10_000;
+export const DEFAULT_AI_SNAPSHOT_EFFICIENT_DEPTH = 6;

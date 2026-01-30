@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/discord",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo Discord channel plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

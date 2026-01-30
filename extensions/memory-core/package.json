@@ -1,0 +1,17 @@
+{
+  "name": "@ozzo/memory-core",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo core memory search plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "ozzo": ">=2026.1.26"
+  },
+  "devDependencies": {
+    "ozzo": "workspace:*"
+  }
+}

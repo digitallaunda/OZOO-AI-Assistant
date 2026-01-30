@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <channel>
+ <title>OZOO</title>
+ <link>https://raw.githubusercontent.com/ozoo/ozoo/main/appcast.xml</link>
+ <description>OZOO release feed</description>
+ <language>en</language>
+
+ <item>
+ <title>OZOO 2026.1.24-1</title>
+ <sparkle:version>2026.1.24-1</sparkle:version>
+ <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+ <pubDate>Sun, 25 Jan 2026 14:05:25 +0000</pubDate>
+ <enclosure
+ url="https://github.com/ozoo/ozoo/releases/download/v2026.1.24-1/OZOO-2026.1.24-1.dmg"
+ sparkle:version="2026.1.24-1"
+ type="application/octet-stream"
+ length="7952"
+ />
+ <description><![CDATA[
+ <h2>OZOO 2026.1.24-1</h2>
+ <h3>Fixes</h3>
+ <ul>
+ <li>Packaging: include dist/shared output in npm tarball (fixes missing reasoning-tags import on install).</li>
+ </ul>
+ <p><a href="https://github.com/ozoo/ozoo/releases/tag/v2026.1.24-1">View full changelog</a></p>
+]]>
+ </description>
+ </item>
+
+ </channel>
+</rss>

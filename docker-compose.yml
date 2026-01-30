@@ -1,0 +1,45 @@
+services:
+  ozzo-gateway:
+    image: ${OZZO_IMAGE:-ozzo:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OZZO_GATEWAY_TOKEN: ${OZZO_GATEWAY_TOKEN}
+      CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
+      CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
+      CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+    volumes:
+      - ${OZZO_CONFIG_DIR}:/home/node/.ozzo
+      - ${OZZO_WORKSPACE_DIR}:/home/node/ozzo
+    ports:
+      - "${OZZO_GATEWAY_PORT:-18789}:18789"
+      - "${OZZO_BRIDGE_PORT:-18790}:18790"
+    init: true
+    restart: unless-stopped
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "${OZZO_GATEWAY_BIND:-lan}",
+        "--port",
+        "${OZZO_GATEWAY_PORT:-18789}"
+      ]
+
+  ozzo-cli:
+    image: ${OZZO_IMAGE:-ozzo:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      BROWSER: echo
+      CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
+      CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
+      CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+    volumes:
+      - ${OZZO_CONFIG_DIR}:/home/node/.ozzo
+      - ${OZZO_WORKSPACE_DIR}:/home/node/ozzo
+    stdin_open: true
+    tty: true
+    init: true
+    entrypoint: ["node", "dist/index.js"]

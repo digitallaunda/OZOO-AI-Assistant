@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/lobster",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Lobster workflow tool plugin (typed pipelines + resumable approvals)",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

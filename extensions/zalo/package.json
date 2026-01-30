@@ -1,0 +1,33 @@
+{
+  "name": "@ozzo/zalo",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo Zalo channel plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "channel": {
+      "id": "zalo",
+      "label": "Zalo",
+      "selectionLabel": "Zalo (Bot API)",
+      "docsPath": "/channels/zalo",
+      "docsLabel": "zalo",
+      "blurb": "Vietnam-focused messaging platform with Bot API.",
+      "aliases": [
+        "zl"
+      ],
+      "order": 80,
+      "quickstartAllowFrom": true
+    },
+    "install": {
+      "npmSpec": "@ozzo/zalo",
+      "localPath": "extensions/zalo",
+      "defaultChoice": "npm"
+    }
+  },
+  "dependencies": {
+    "ozzo": "workspace:*",
+    "undici": "7.19.0"
+  }
+}

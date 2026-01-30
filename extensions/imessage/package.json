@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/imessage",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo iMessage channel plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

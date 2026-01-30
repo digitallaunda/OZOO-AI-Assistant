@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/copilot-proxy",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo Copilot Proxy provider plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

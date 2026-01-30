@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/google-gemini-cli-auth",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo Gemini CLI OAuth provider plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

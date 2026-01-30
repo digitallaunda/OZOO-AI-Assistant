@@ -1,0 +1,53 @@
+---
+name: ozzyhub
+description: Use the OzzyHub CLI to search, install, update, and publish agent skills from ozzyhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed ozzyhub CLI.
+metadata: {"ozzo":{"requires":{"bins":["ozzyhub"]},"install":[{"id":"node","kind":"node","package":"ozzyhub","bins":["ozzyhub"],"label":"Install OzzyHub CLI (npm)"}]}}
+---
+
+# OzzyHub CLI
+
+Install
+```bash
+npm i -g ozzyhub
+```
+
+Auth (publish)
+```bash
+ozzyhub login
+ozzyhub whoami
+```
+
+Search
+```bash
+ozzyhub search "postgres backups"
+```
+
+Install
+```bash
+ozzyhub install my-skill
+ozzyhub install my-skill --version 1.2.3
+```
+
+Update (hash-based match + upgrade)
+```bash
+ozzyhub update my-skill
+ozzyhub update my-skill --version 1.2.3
+ozzyhub update --all
+ozzyhub update my-skill --force
+ozzyhub update --all --no-input --force
+```
+
+List
+```bash
+ozzyhub list
+```
+
+Publish
+```bash
+ozzyhub publish ./my-skill --slug my-skill --name "My Skill" --version 1.2.0 --changelog "Fixes + docs"
+```
+
+Notes
+- Default registry: https://ozzyhub.com (override with OZZYHUB_REGISTRY or --registry)
+- Default workdir: cwd (falls back to Ozzo workspace); install dir: ./skills (override with --workdir / --dir / OZZYHUB_WORKDIR)
+- Update command hashes local files, resolves matching version, and upgrades to latest unless --version is set

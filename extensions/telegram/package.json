@@ -1,0 +1,11 @@
+{
+  "name": "@ozzo/telegram",
+  "version": "2026.1.29",
+  "type": "module",
+  "description": "Ozzo Telegram channel plugin",
+  "ozzo": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

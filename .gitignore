@@ -1,0 +1,93 @@
+node_modules
+**/node_modules/
+.env
+docker-compose.extra.yml
+dist
+*.bun-build
+pnpm-lock.yaml
+bun.lock
+bun.lockb
+coverage
+.pnpm-store
+.worktrees/
+.DS_Store
+**/.DS_Store
+ui/src/ui/__screenshots__/
+ui/playwright-report/
+ui/test-results/
+
+# Bun build artifacts
+*.bun-build
+apps/macos/.build/
+apps/shared/OZOOKit/.build/
+**/ModuleCache/
+bin/
+bin/ozzo-mac
+bin/docs-list
+apps/macos/.build-local/
+apps/macos/.swiftpm/
+apps/shared/OZOOKit/.swiftpm/
+Core/
+apps/ios/*.xcodeproj/
+apps/ios/*.xcworkspace/
+apps/ios/.swiftpm/
+vendor/
+apps/ios/OZOO.xcodeproj/
+apps/ios/OZOO.xcodeproj/**
+apps/macos/.build/**
+**/*.bun-build
+apps/ios/*.xcfilelist
+
+# Vendor build artifacts
+vendor/a2ui/renderers/lit/dist/
+src/canvas-host/a2ui/*.bundle.js
+src/canvas-host/a2ui/*.map
+.bundle.hash
+
+# fastlane (iOS)
+apps/ios/fastlane/README.md
+apps/ios/fastlane/report.xml
+apps/ios/fastlane/Preview.html
+apps/ios/fastlane/screenshots/
+apps/ios/fastlane/test_output/
+apps/ios/fastlane/logs/
+apps/ios/fastlane/.env
+apps/ios/fastlane/report.xml
+
+# fastlane build artifacts (local)
+apps/ios/*.ipa
+apps/ios/*.dSYM.zip
+
+# provisioning profiles (local)
+apps/ios/*.mobileprovision
+.env
+
+# Local untracked files
+.local/
+.vscode/
+IDENTITY.md
+USER.md
+.tgz
+
+# local tooling
+.serena/
+
+# Rebranding documentation (mentions original project name)
+**/REBRANDING_SUMMARY.md
+**/REBRANDING_COMPLETE.md
+**/REBRANDING_REPORT.md
+**/MIGRATION_SUMMARY.md
+**/MIGRATION.md
+**/IMPORT_SUMMARY.md
+UI_REBRANDING_SUMMARY.md
+UI_REBRANDING_EXAMPLES.md
+.import-complete
+rebrand-script.js
+rebrand-script.cjs
+copy_skills.mjs
+fetch_skills.mjs
+copy-apps.ts
+import-OZOO-docs.ts
+import-OZOO-docs-v2.ts
+COPIED_FILES.txt
+files-list.txt
