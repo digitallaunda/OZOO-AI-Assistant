@@ -54,8 +54,7 @@ vi.mock("../media/store.js", () => ({
 
 vi.mock("@whiskeysockets/baileys", () => {
   const created = createMockBaileys();
-  (globalThis as Record<PropertyKey, unknown>)[Symbol.for("ozzo:lastSocket")] =
-    created.lastSocket;
+  (globalThis as Record<PropertyKey, unknown>)[Symbol.for("ozzo:lastSocket")] = created.lastSocket;
   return created.mod;
 });
 

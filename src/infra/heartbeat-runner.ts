@@ -308,11 +308,7 @@ function resolveHeartbeatAckMaxChars(cfg: OzzoConfig, heartbeat?: HeartbeatConfi
   );
 }
 
-function resolveHeartbeatSession(
-  cfg: OzzoConfig,
-  agentId?: string,
-  heartbeat?: HeartbeatConfig,
-) {
+function resolveHeartbeatSession(cfg: OzzoConfig, agentId?: string, heartbeat?: HeartbeatConfig) {
   const sessionCfg = cfg.session;
   const scope = sessionCfg?.scope ?? "per-sender";
   const resolvedAgentId = normalizeAgentId(agentId ?? resolveDefaultAgentId(cfg));

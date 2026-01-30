@@ -47,17 +47,20 @@ pnpm test test/gateway.multi.e2e.test.ts
 ## Test Categories
 
 ### Unit Tests
+
 - Provider contract validation
 - Text normalization
 - Path utilities
 - Polling helpers
 
 ### Integration Tests
+
 - Auto-reply retry logic
 - Multi-provider inbound contracts
 - Media understanding
 
 ### E2E Tests
+
 - Multi-gateway orchestration
 - Provider timeout and fallback
 - Media transcription auto-detection
@@ -66,6 +69,7 @@ pnpm test test/gateway.multi.e2e.test.ts
 ## Environment Variables
 
 Tests use the `OZZO_*` prefix for environment variables:
+
 - `OZZO_CONFIG_PATH`
 - `OZZO_STATE_DIR`
 - `OZZO_GATEWAY_PORT`
@@ -77,6 +81,7 @@ Tests use the `OZZO_*` prefix for environment variables:
 ## Test Isolation
 
 All tests run in isolated environments with:
+
 - Temporary HOME directories
 - Isolated config/state directories
 - Mocked channel plugins

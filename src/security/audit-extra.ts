@@ -138,8 +138,7 @@ export function collectSecretsInConfigFindings(cfg: OzzoConfig): SecurityAuditFi
       title: "Gateway password is stored in config",
       detail:
         "gateway.auth.password is set in the config file; prefer environment variables for secrets when possible.",
-      remediation:
-        "Prefer OZZO_GATEWAY_PASSWORD (env) and remove gateway.auth.password from disk.",
+      remediation: "Prefer OZZO_GATEWAY_PASSWORD (env) and remove gateway.auth.password from disk.",
     });
   }
 

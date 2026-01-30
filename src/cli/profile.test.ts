@@ -5,13 +5,7 @@ import { applyCliProfileEnv, parseCliProfileArgs } from "./profile.js";
 
 describe("parseCliProfileArgs", () => {
   it("leaves gateway --dev for subcommands", () => {
-    const res = parseCliProfileArgs([
-      "node",
-      "ozzo",
-      "gateway",
-      "--dev",
-      "--allow-unconfigured",
-    ]);
+    const res = parseCliProfileArgs(["node", "ozzo", "gateway", "--dev", "--allow-unconfigured"]);
     if (!res.ok) throw new Error(res.error);
     expect(res.profile).toBeNull();
     expect(res.argv).toEqual(["node", "ozzo", "gateway", "--dev", "--allow-unconfigured"]);
@@ -102,9 +96,9 @@ describe("formatCliCommand", () => {
   });
 
   it("returns command unchanged when --profile is already present", () => {
-    expect(
-      formatCliCommand("ozzo --profile work doctor --fix", { OZZO_PROFILE: "work" }),
-    ).toBe("ozzo --profile work doctor --fix");
+    expect(formatCliCommand("ozzo --profile work doctor --fix", { OZZO_PROFILE: "work" })).toBe(
+      "ozzo --profile work doctor --fix",
+    );
   });
 
   it("returns command unchanged when --dev is already present", () => {
@@ -126,9 +120,7 @@ describe("formatCliCommand", () => {
   });
 
   it("handles command with no args after ozzo", () => {
-    expect(formatCliCommand("ozzo", { OZZO_PROFILE: "test" })).toBe(
-      "ozzo --profile test",
-    );
+    expect(formatCliCommand("ozzo", { OZZO_PROFILE: "test" })).toBe("ozzo --profile test");
   });
 
   it("handles pnpm wrapper", () => {

@@ -16,9 +16,9 @@ async function withTempHome(run: (home: string) => Promise<void>): Promise<void>
 
 async function writeConfig(
   home: string,
-  dirname: ".ozzo" | ".ozzo",
+  dirname: ".ozzo"  ,
   port: number,
-  filename: "ozzo.json" | "ozzo.json" = "ozzo.json",
+  filename: "ozzo.json"   = "ozzo.json",
 ) {
   const dir = path.join(home, dirname);
   await fs.mkdir(dir, { recursive: true });

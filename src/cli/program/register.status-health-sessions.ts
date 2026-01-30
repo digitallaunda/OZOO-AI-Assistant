@@ -43,10 +43,7 @@ export function registerStatusHealthSessionsCommands(program: Command) {
           ["ozzo status --all", "Full diagnosis (read-only)."],
           ["ozzo status --json", "Machine-readable output."],
           ["ozzo status --usage", "Show model provider usage/quota snapshots."],
-          [
-            "ozzo status --deep",
-            "Run channel probes (WA + Telegram + Discord + Slack + Signal).",
-          ],
+          ["ozzo status --deep", "Run channel probes (WA + Telegram + Discord + Slack + Signal)."],
           ["ozzo status --deep --timeout 5000", "Tighten probe timeout."],
         ])}`,
     )

@@ -46,10 +46,7 @@ export function resolveDefaultSlackAccountId(cfg: OzzoConfig): string {
   return ids[0] ?? DEFAULT_ACCOUNT_ID;
 }
 
-function resolveAccountConfig(
-  cfg: OzzoConfig,
-  accountId: string,
-): SlackAccountConfig | undefined {
+function resolveAccountConfig(cfg: OzzoConfig, accountId: string): SlackAccountConfig | undefined {
   const accounts = cfg.channels?.slack?.accounts;
   if (!accounts || typeof accounts !== "object") return undefined;
   return accounts[accountId] as SlackAccountConfig | undefined;

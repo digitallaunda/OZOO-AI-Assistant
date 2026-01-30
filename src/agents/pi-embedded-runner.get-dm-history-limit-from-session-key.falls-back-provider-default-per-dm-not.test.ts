@@ -69,8 +69,7 @@ const _makeOpenAiConfig = (modelIds: string[]) =>
     },
   }) satisfies OzzoConfig;
 
-const _ensureModels = (cfg: OzzoConfig, agentDir: string) =>
-  ensureOzzoModelsJson(cfg, agentDir);
+const _ensureModels = (cfg: OzzoConfig, agentDir: string) => ensureOzzoModelsJson(cfg, agentDir);
 
 const _textFromContent = (content: unknown) => {
   if (typeof content === "string") return content;

@@ -29,10 +29,7 @@ export function resolveDefaultSignalAccountId(cfg: OzzoConfig): string {
   return ids[0] ?? DEFAULT_ACCOUNT_ID;
 }
 
-function resolveAccountConfig(
-  cfg: OzzoConfig,
-  accountId: string,
-): SignalAccountConfig | undefined {
+function resolveAccountConfig(cfg: OzzoConfig, accountId: string): SignalAccountConfig | undefined {
   const accounts = cfg.channels?.signal?.accounts;
   if (!accounts || typeof accounts !== "object") return undefined;
   return accounts[accountId] as SignalAccountConfig | undefined;

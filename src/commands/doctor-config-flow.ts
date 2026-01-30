@@ -196,9 +196,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
       // Legacy migration (2026-01-02, commit: 16420e5b) — normalize per-provider allowlists; move WhatsApp gating into channels.whatsapp.allowFrom.
       if (migrated) cfg = migrated;
     } else {
-      fixHints.push(
-        `Run "${formatCliCommand("ozzo doctor --fix")}" to apply legacy migrations.`,
-      );
+      fixHints.push(`Run "${formatCliCommand("ozzo doctor --fix")}" to apply legacy migrations.`);
     }
   }
 

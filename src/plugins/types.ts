@@ -242,10 +242,7 @@ export type OzzoPluginApi = {
   pluginConfig?: Record<string, unknown>;
   runtime: PluginRuntime;
   logger: PluginLogger;
-  registerTool: (
-    tool: AnyAgentTool | OzzoPluginToolFactory,
-    opts?: OzzoPluginToolOptions,
-  ) => void;
+  registerTool: (tool: AnyAgentTool | OzzoPluginToolFactory, opts?: OzzoPluginToolOptions) => void;
   registerHook: (
     events: string | string[],
     handler: InternalHookHandler,

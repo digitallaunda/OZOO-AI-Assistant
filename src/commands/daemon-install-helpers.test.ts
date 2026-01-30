@@ -35,9 +35,7 @@ afterEach(() => {
 describe("resolveGatewayDevMode", () => {
   it("detects dev mode for src ts entrypoints", () => {
     expect(resolveGatewayDevMode(["node", "/Users/me/ozzo/src/cli/index.ts"])).toBe(true);
-    expect(resolveGatewayDevMode(["node", "C:\\Users\\me\\ozzo\\src\\cli\\index.ts"])).toBe(
-      true,
-    );
+    expect(resolveGatewayDevMode(["node", "C:\\Users\\me\\ozzo\\src\\cli\\index.ts"])).toBe(true);
     expect(resolveGatewayDevMode(["node", "/Users/me/ozzo/dist/cli/index.js"])).toBe(false);
   });
 });

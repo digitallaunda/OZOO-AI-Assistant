@@ -14,13 +14,13 @@ const HOT_CONTAINER_WINDOW_MS = 5 * 60 * 1000;
 const SAFE_CONTAINER_NAME_PATTERN = /^[a-zA-Z0-9][a-zA-Z0-9_.-]*$/;
 const SAFE_IMAGE_NAME_PATTERN = /^[a-z0-9]+(?:[._-][a-z0-9]+)*(?::[a-z0-9._-]+)?$/i;
 const SUSPICIOUS_PATTERNS = [
-  /[;&|`$(){}[\]<>]/,  // Shell metacharacters
-  /\.\./,               // Path traversal
-  /^\s*-/,              // Starts with dash (flag injection)
+  /[;&|`$(){}[\]<>]/, // Shell metacharacters
+  /\.\./, // Path traversal
+  /^\s*-/, // Starts with dash (flag injection)
 ];
 
-function validateDockerArg(value: string, argType: 'container' | 'image' | 'generic'): void {
-  if (!value || typeof value !== 'string') {
+function validateDockerArg(value: string, argType: "container" | "image" | "generic"): void {
+  if (!value || typeof value !== "string") {
     throw new Error(`Invalid docker argument: empty or non-string value`);
   }
 
@@ -28,25 +28,25 @@ function validateDockerArg(value: string, argType: 'container' | 'image' | 'gene
   for (const pattern of SUSPICIOUS_PATTERNS) {
     if (pattern.test(value)) {
       throw new Error(
-        `Invalid docker argument: contains suspicious characters (${value.slice(0, 50)})`
+        `Invalid docker argument: contains suspicious characters (${value.slice(0, 50)})`,
       );
     }
   }
 
   // Type-specific validation
-  if (argType === 'container') {
+  if (argType === "container") {
     if (!SAFE_CONTAINER_NAME_PATTERN.test(value)) {
       throw new Error(
-        `Invalid container name: must be alphanumeric with optional .-_ (got: ${value.slice(0, 50)})`
+        `Invalid container name: must be alphanumeric with optional .-_ (got: ${value.slice(0, 50)})`,
       );
     }
     if (value.length > 63) {
       throw new Error(`Invalid container name: too long (max 63 characters)`);
     }
-  } else if (argType === 'image') {
+  } else if (argType === "image") {
     if (!SAFE_IMAGE_NAME_PATTERN.test(value)) {
       throw new Error(
-        `Invalid image name: must follow Docker naming conventions (got: ${value.slice(0, 50)})`
+        `Invalid image name: must follow Docker naming conventions (got: ${value.slice(0, 50)})`,
       );
     }
   }
@@ -59,11 +59,11 @@ function validateDockerArg(value: string, argType: 'container' | 'image' | 'gene
 
 function validateDockerArgs(args: string[]): void {
   if (!Array.isArray(args)) {
-    throw new Error('Docker arguments must be an array');
+    throw new Error("Docker arguments must be an array");
   }
 
   for (const arg of args) {
-    if (typeof arg !== 'string') {
+    if (typeof arg !== "string") {
       throw new Error(`Invalid docker argument type: ${typeof arg}`);
     }
   }
@@ -97,7 +97,7 @@ export function execDocker(args: string[], opts?: { allowFailure?: boolean }) {
 }
 
 export async function readDockerPort(containerName: string, port: number) {
-  validateDockerArg(containerName, 'container');
+  validateDockerArg(containerName, "container");
   const result = await execDocker(["port", containerName, `${port}/tcp`], {
     allowFailure: true,
   });
@@ -110,7 +110,7 @@ export async function readDockerPort(containerName: string, port: number) {
 }
 
 async function dockerImageExists(image: string) {
-  validateDockerArg(image, 'image');
+  validateDockerArg(image, "image");
   const result = await execDocker(["image", "inspect", image], {
     allowFailure: true,
   });
@@ -123,7 +123,7 @@ async function dockerImageExists(image: string) {
 }
 
 export async function ensureDockerImage(image: string) {
-  validateDockerArg(image, 'image');
+  validateDockerArg(image, "image");
   const exists = await dockerImageExists(image);
   if (exists) return;
   if (image === DEFAULT_SANDBOX_IMAGE) {
@@ -135,7 +135,7 @@ export async function ensureDockerImage(image: string) {
 }
 
 export async function dockerContainerState(name: string) {
-  validateDockerArg(name, 'container');
+  validateDockerArg(name, "container");
   const result = await execDocker(["inspect", "-f", "{{.State.Running}}", name], {
     allowFailure: true,
   });

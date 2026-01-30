@@ -3,10 +3,7 @@ import type { PluginInstallRecord } from "../config/types.plugins.js";
 
 export type PluginInstallUpdate = PluginInstallRecord & { pluginId: string };
 
-export function recordPluginInstall(
-  cfg: OzzoConfig,
-  update: PluginInstallUpdate,
-): OzzoConfig {
+export function recordPluginInstall(cfg: OzzoConfig, update: PluginInstallUpdate): OzzoConfig {
   const { pluginId, ...record } = update;
   const installs = {
     ...cfg.plugins?.installs,

@@ -3,8 +3,7 @@ import process from "node:process";
 import { isTruthyEnvValue } from "../infra/env.js";
 import type { TelegramNetworkConfig } from "../config/types.telegram.js";
 
-export const TELEGRAM_DISABLE_AUTO_SELECT_FAMILY_ENV =
-  "OZZO_TELEGRAM_DISABLE_AUTO_SELECT_FAMILY";
+export const TELEGRAM_DISABLE_AUTO_SELECT_FAMILY_ENV = "OZZO_TELEGRAM_DISABLE_AUTO_SELECT_FAMILY";
 export const TELEGRAM_ENABLE_AUTO_SELECT_FAMILY_ENV = "OZZO_TELEGRAM_ENABLE_AUTO_SELECT_FAMILY";
 
 export type TelegramAutoSelectFamilyDecision = {

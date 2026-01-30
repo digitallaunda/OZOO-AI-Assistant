@@ -5,8 +5,7 @@ import { DEFAULT_AGENT_ID } from "../routing/session-key.js";
 import { resolveUserPath } from "../utils.js";
 
 export function resolveOzzoAgentDir(): string {
-  const override =
-    process.env.OZZO_AGENT_DIR?.trim() || process.env.PI_CODING_AGENT_DIR?.trim();
+  const override = process.env.OZZO_AGENT_DIR?.trim() || process.env.PI_CODING_AGENT_DIR?.trim();
   if (override) return resolveUserPath(override);
   const defaultAgentDir = path.join(resolveStateDir(), "agents", DEFAULT_AGENT_ID, "agent");
   return resolveUserPath(defaultAgentDir);

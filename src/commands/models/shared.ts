@@ -5,11 +5,7 @@ import {
   parseModelRef,
   resolveModelRefFromString,
 } from "../../agents/model-selection.js";
-import {
-  type OzzoConfig,
-  readConfigFileSnapshot,
-  writeConfigFile,
-} from "../../config/config.js";
+import { type OzzoConfig, readConfigFileSnapshot, writeConfigFile } from "../../config/config.js";
 
 export const ensureFlagCompatibility = (opts: { json?: boolean; plain?: boolean }) => {
   if (opts.json && opts.plain) {
@@ -30,9 +26,7 @@ export const formatMs = (value?: number | null) => {
   return `${Math.round(value / 100) / 10}s`;
 };
 
-export async function updateConfig(
-  mutator: (cfg: OzzoConfig) => OzzoConfig,
-): Promise<OzzoConfig> {
+export async function updateConfig(mutator: (cfg: OzzoConfig) => OzzoConfig): Promise<OzzoConfig> {
   const snapshot = await readConfigFileSnapshot();
   if (!snapshot.valid) {
     const issues = snapshot.issues.map((issue) => `- ${issue.path}: ${issue.message}`).join("\n");

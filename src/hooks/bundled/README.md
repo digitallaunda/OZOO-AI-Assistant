@@ -83,8 +83,7 @@ session-memory/
 name: my-hook
 description: "Short description"
 homepage: https://docs.ozoo.bot/hooks#my-hook
-metadata:
-  { "ozzo": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
+metadata: { "ozzo": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
 # Hook Title
 

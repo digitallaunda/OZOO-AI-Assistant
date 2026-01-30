@@ -58,10 +58,7 @@ function accountsHaveKeys(value: unknown, keys: string[]): boolean {
   return false;
 }
 
-function resolveChannelConfig(
-  cfg: OzzoConfig,
-  channelId: string,
-): Record<string, unknown> | null {
+function resolveChannelConfig(cfg: OzzoConfig, channelId: string): Record<string, unknown> | null {
   const channels = cfg.channels as Record<string, unknown> | undefined;
   const entry = channels?.[channelId];
   return isRecord(entry) ? entry : null;
@@ -236,10 +233,7 @@ function isProviderConfigured(cfg: OzzoConfig, providerId: string): boolean {
   return false;
 }
 
-function resolveConfiguredPlugins(
-  cfg: OzzoConfig,
-  env: NodeJS.ProcessEnv,
-): PluginEnableChange[] {
+function resolveConfiguredPlugins(cfg: OzzoConfig, env: NodeJS.ProcessEnv): PluginEnableChange[] {
   const changes: PluginEnableChange[] = [];
   const channelIds = new Set(CHANNEL_PLUGIN_IDS);
   const configuredChannels = cfg.channels as Record<string, unknown> | undefined;

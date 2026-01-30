@@ -118,10 +118,7 @@ export function isProfileDecorated(
  * Best-effort profile decoration (name + OZZO blue). Chrome preference keys
  * vary by version; we keep this conservative and idempotent.
  */
-export function decorateOzzoProfile(
-  userDataDir: string,
-  opts?: { name?: string; color?: string },
-) {
+export function decorateOzzoProfile(userDataDir: string, opts?: { name?: string; color?: string }) {
   const desiredName = opts?.name ?? DEFAULT_OZZO_BROWSER_PROFILE_NAME;
   const desiredColor = (opts?.color ?? DEFAULT_OZZO_BROWSER_COLOR).toUpperCase();
   const desiredColorInt = parseHexRgbToSignedArgbInt(desiredColor);

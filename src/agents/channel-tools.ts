@@ -72,10 +72,7 @@ export function resolveChannelMessageToolHints(params: {
 
 const loggedListActionErrors = new Set<string>();
 
-function runPluginListActions(
-  plugin: ChannelPlugin,
-  cfg: OzzoConfig,
-): ChannelMessageActionName[] {
+function runPluginListActions(plugin: ChannelPlugin, cfg: OzzoConfig): ChannelMessageActionName[] {
   if (!plugin.actions?.listActions) return [];
   try {
     const listed = plugin.actions.listActions({ cfg });

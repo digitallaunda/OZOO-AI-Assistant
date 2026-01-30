@@ -36,13 +36,10 @@ describe("Nix integration (U3, U5, U9)", () => {
 
   describe("U5: CONFIG_PATH and STATE_DIR env var overrides", () => {
     it("STATE_DIR defaults to ~/.ozzo when env not set", async () => {
-      await withEnvOverride(
-        { OZZO_STATE_DIR: undefined, OZZO_STATE_DIR: undefined },
-        async () => {
-          const { STATE_DIR } = await import("./config.js");
-          expect(STATE_DIR).toMatch(/\.ozzo$/);
-        },
-      );
+      await withEnvOverride({ OZZO_STATE_DIR: undefined, OZZO_STATE_DIR: undefined }, async () => {
+        const { STATE_DIR } = await import("./config.js");
+        expect(STATE_DIR).toMatch(/\.ozzo$/);
+      });
     });
 
     it("STATE_DIR respects OZZO_STATE_DIR override", async () => {
@@ -198,9 +195,7 @@ describe("Nix integration (U3, U5, U9)", () => {
         expect(cfg.plugins?.load?.paths?.[0]).toBe(path.join(home, "plugins", "demo-plugin"));
         expect(cfg.agents?.defaults?.workspace).toBe(path.join(home, "ws-default"));
         expect(cfg.agents?.list?.[0]?.workspace).toBe(path.join(home, "ws-agent"));
-        expect(cfg.agents?.list?.[0]?.agentDir).toBe(
-          path.join(home, ".ozzo", "agents", "main"),
-        );
+        expect(cfg.agents?.list?.[0]?.agentDir).toBe(path.join(home, ".ozzo", "agents", "main"));
         expect(cfg.agents?.list?.[0]?.sandbox?.workspaceRoot).toBe(path.join(home, "sandbox-root"));
         expect(cfg.channels?.whatsapp?.accounts?.personal?.authDir).toBe(
           path.join(home, ".ozzo", "credentials", "wa-personal"),

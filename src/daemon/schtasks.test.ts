@@ -39,16 +39,12 @@ describe("schtasks runtime parsing", () => {
 describe("resolveTaskScriptPath", () => {
   it("uses default path when OZZO_PROFILE is default", () => {
     const env = { USERPROFILE: "C:\\Users\\test", OZZO_PROFILE: "default" };
-    expect(resolveTaskScriptPath(env)).toBe(
-      path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"),
-    );
+    expect(resolveTaskScriptPath(env)).toBe(path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"));
   });
 
   it("uses default path when OZZO_PROFILE is unset", () => {
     const env = { USERPROFILE: "C:\\Users\\test" };
-    expect(resolveTaskScriptPath(env)).toBe(
-      path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"),
-    );
+    expect(resolveTaskScriptPath(env)).toBe(path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"));
   });
 
   it("uses profile-specific path when OZZO_PROFILE is set to a custom value", () => {
@@ -69,16 +65,12 @@ describe("resolveTaskScriptPath", () => {
 
   it("handles case-insensitive 'Default' profile", () => {
     const env = { USERPROFILE: "C:\\Users\\test", OZZO_PROFILE: "Default" };
-    expect(resolveTaskScriptPath(env)).toBe(
-      path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"),
-    );
+    expect(resolveTaskScriptPath(env)).toBe(path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"));
   });
 
   it("handles case-insensitive 'DEFAULT' profile", () => {
     const env = { USERPROFILE: "C:\\Users\\test", OZZO_PROFILE: "DEFAULT" };
-    expect(resolveTaskScriptPath(env)).toBe(
-      path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"),
-    );
+    expect(resolveTaskScriptPath(env)).toBe(path.join("C:\\Users\\test", ".ozzo", "gateway.cmd"));
   });
 
   it("trims whitespace from OZZO_PROFILE", () => {

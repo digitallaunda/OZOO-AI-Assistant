@@ -33,11 +33,7 @@ function setSignalDmPolicy(cfg: OzzoConfig, dmPolicy: DmPolicy) {
   };
 }
 
-function setSignalAllowFrom(
-  cfg: OzzoConfig,
-  accountId: string,
-  allowFrom: string[],
-): OzzoConfig {
+function setSignalAllowFrom(cfg: OzzoConfig, accountId: string, allowFrom: string[]): OzzoConfig {
   if (accountId === DEFAULT_ACCOUNT_ID) {
     return {
       ...cfg,

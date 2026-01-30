@@ -3,10 +3,7 @@ import { resolveAgentConfig } from "./agent-scope.js";
 
 const DEFAULT_ACK_REACTION = "👀";
 
-export function resolveAgentIdentity(
-  cfg: OzzoConfig,
-  agentId: string,
-): IdentityConfig | undefined {
+export function resolveAgentIdentity(cfg: OzzoConfig, agentId: string): IdentityConfig | undefined {
   return resolveAgentConfig(cfg, agentId)?.identity;
 }
 

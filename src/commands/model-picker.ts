@@ -447,10 +447,7 @@ export function applyModelAllowlist(cfg: OzzoConfig, models: string[]): OzzoConf
   };
 }
 
-export function applyModelFallbacksFromSelection(
-  cfg: OzzoConfig,
-  selection: string[],
-): OzzoConfig {
+export function applyModelFallbacksFromSelection(cfg: OzzoConfig, selection: string[]): OzzoConfig {
   const normalized = normalizeModelKeys(selection);
   if (normalized.length <= 1) return cfg;
 

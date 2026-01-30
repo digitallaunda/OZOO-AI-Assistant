@@ -153,9 +153,7 @@ describeLive("live models (profile keys)", () => {
       const cfg = loadConfig();
       await ensureOzzoModelsJson(cfg);
       if (!DIRECT_ENABLED) {
-        logProgress(
-          "[live-models] skipping (set OZZO_LIVE_MODELS=modern|all|<list>; all=modern)",
-        );
+        logProgress("[live-models] skipping (set OZZO_LIVE_MODELS=modern|all|<list>; all=modern)");
         return;
       }
       const anthropicKeys = collectAnthropicApiKeys();

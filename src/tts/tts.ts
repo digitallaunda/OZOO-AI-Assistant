@@ -808,10 +808,7 @@ type SummaryModelSelection = {
   source: "summaryModel" | "default";
 };
 
-function resolveSummaryModelRef(
-  cfg: OzzoConfig,
-  config: ResolvedTtsConfig,
-): SummaryModelSelection {
+function resolveSummaryModelRef(cfg: OzzoConfig, config: ResolvedTtsConfig): SummaryModelSelection {
   const defaultRef = resolveDefaultModelForAgent({ cfg });
   const override = config.summaryModel?.trim();
   if (!override) return { ref: defaultRef, source: "default" };

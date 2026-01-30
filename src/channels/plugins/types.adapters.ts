@@ -21,11 +21,7 @@ import type {
 
 export type ChannelSetupAdapter = {
   resolveAccountId?: (params: { cfg: OzzoConfig; accountId?: string }) => string;
-  applyAccountName?: (params: {
-    cfg: OzzoConfig;
-    accountId: string;
-    name?: string;
-  }) => OzzoConfig;
+  applyAccountName?: (params: { cfg: OzzoConfig; accountId: string; name?: string }) => OzzoConfig;
   applyAccountConfig: (params: {
     cfg: OzzoConfig;
     accountId: string;
@@ -184,11 +180,7 @@ export type ChannelLogoutContext<ResolvedAccount = unknown> = {
 export type ChannelPairingAdapter = {
   idLabel: string;
   normalizeAllowEntry?: (entry: string) => string;
-  notifyApproval?: (params: {
-    cfg: OzzoConfig;
-    id: string;
-    runtime?: RuntimeEnv;
-  }) => Promise<void>;
+  notifyApproval?: (params: { cfg: OzzoConfig; id: string; runtime?: RuntimeEnv }) => Promise<void>;
 };
 
 export type ChannelGatewayAdapter<ResolvedAccount = unknown> = {

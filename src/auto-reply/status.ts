@@ -258,10 +258,7 @@ const formatMediaUnderstandingLine = (decisions?: MediaUnderstandingDecision[]) 
   return `📎 Media: ${parts.join(" · ")}`;
 };
 
-const formatVoiceModeLine = (
-  config?: OzzoConfig,
-  sessionEntry?: SessionEntry,
-): string | null => {
+const formatVoiceModeLine = (config?: OzzoConfig, sessionEntry?: SessionEntry): string | null => {
   if (!config) return null;
   const ttsConfig = resolveTtsConfig(config);
   const prefsPath = resolveTtsPrefsPath(ttsConfig);

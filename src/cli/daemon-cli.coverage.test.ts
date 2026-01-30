@@ -108,8 +108,7 @@ describe("daemon-cli coverage", () => {
       process.env.OZZO_GATEWAY_PORT = originalEnv.OZZO_GATEWAY_PORT;
     else delete process.env.OZZO_GATEWAY_PORT;
 
-    if (originalEnv.OZZO_PROFILE !== undefined)
-      process.env.OZZO_PROFILE = originalEnv.OZZO_PROFILE;
+    if (originalEnv.OZZO_PROFILE !== undefined) process.env.OZZO_PROFILE = originalEnv.OZZO_PROFILE;
     else delete process.env.OZZO_PROFILE;
   });
 

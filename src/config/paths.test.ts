@@ -74,8 +74,6 @@ describe("state + config path candidates", () => {
     const previousHomeDrive = process.env.HOMEDRIVE;
     const previousHomePath = process.env.HOMEPATH;
     const previousOzzoConfig = process.env.OZZO_CONFIG_PATH;
-    const previousOzzoConfig = process.env.OZZO_CONFIG_PATH;
-    const previousOzzoState = process.env.OZZO_STATE_DIR;
     const previousOzzoState = process.env.OZZO_STATE_DIR;
     try {
       const legacyDir = path.join(root, ".ozzo");

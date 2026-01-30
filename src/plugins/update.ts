@@ -73,9 +73,7 @@ function resolveBundledPluginSources(params: {
     if (bundled.has(pluginId)) continue;
 
     const npmSpec =
-      candidate.packageOzzo?.install?.npmSpec?.trim() ||
-      candidate.packageName?.trim() ||
-      undefined;
+      candidate.packageOzzo?.install?.npmSpec?.trim() || candidate.packageName?.trim() || undefined;
 
     bundled.set(pluginId, {
       pluginId,

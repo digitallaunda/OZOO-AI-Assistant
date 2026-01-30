@@ -211,7 +211,6 @@ export function loadOzzoPlugins(options: PluginLoadOptions = {}): PluginRegistry
       ? {
           alias: {
             "ozzo/plugin-sdk": pluginSdkAlias,
-            "ozzo/plugin-sdk": pluginSdkAlias,
           },
         }
       : {}),

@@ -161,9 +161,7 @@ describe("commands registry", () => {
   });
 
   it("keeps telegram-style command mentions for other bots", () => {
-    expect(normalizeCommandBody("/help@otherbot", { botUsername: "ozzo" })).toBe(
-      "/help@otherbot",
-    );
+    expect(normalizeCommandBody("/help@otherbot", { botUsername: "ozzo" })).toBe("/help@otherbot");
   });
 
   it("normalizes dock command aliases", () => {

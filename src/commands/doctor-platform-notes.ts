@@ -71,9 +71,7 @@ export async function noteMacLaunchctlGatewayEnvOverrides(
   const lines = [
     "- launchctl environment overrides detected (can cause confusing unauthorized errors).",
     envToken ? "- `OZZO_GATEWAY_TOKEN` is set; it overrides config tokens." : undefined,
-    envPassword
-      ? "- `OZZO_GATEWAY_PASSWORD` is set; it overrides config passwords."
-      : undefined,
+    envPassword ? "- `OZZO_GATEWAY_PASSWORD` is set; it overrides config passwords." : undefined,
     "- Clear overrides and restart the app/gateway:",
     envToken ? "  launchctl unsetenv OZZO_GATEWAY_TOKEN" : undefined,
     envPassword ? "  launchctl unsetenv OZZO_GATEWAY_PASSWORD" : undefined,

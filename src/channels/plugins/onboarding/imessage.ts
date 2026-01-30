@@ -31,11 +31,7 @@ function setIMessageDmPolicy(cfg: OzzoConfig, dmPolicy: DmPolicy) {
   };
 }
 
-function setIMessageAllowFrom(
-  cfg: OzzoConfig,
-  accountId: string,
-  allowFrom: string[],
-): OzzoConfig {
+function setIMessageAllowFrom(cfg: OzzoConfig, accountId: string, allowFrom: string[]): OzzoConfig {
   if (accountId === DEFAULT_ACCOUNT_ID) {
     return {
       ...cfg,

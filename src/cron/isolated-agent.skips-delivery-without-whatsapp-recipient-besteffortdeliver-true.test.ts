@@ -57,11 +57,7 @@ async function writeSessionStore(home: string) {
   return storePath;
 }
 
-function makeCfg(
-  home: string,
-  storePath: string,
-  overrides: Partial<OzzoConfig> = {},
-): OzzoConfig {
+function makeCfg(home: string, storePath: string, overrides: Partial<OzzoConfig> = {}): OzzoConfig {
   const base: OzzoConfig = {
     agents: {
       defaults: {

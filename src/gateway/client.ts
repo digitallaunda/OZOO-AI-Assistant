@@ -130,7 +130,7 @@ export class GatewayClient {
           return new Error("gateway tls fingerprint mismatch");
         }
         return undefined;
-      }) as any;
+      }) as (hostname: string, cert: unknown) => Error | undefined;
     }
     this.ws = new WebSocket(url, wsOptions);
 

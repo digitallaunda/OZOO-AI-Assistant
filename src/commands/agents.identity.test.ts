@@ -122,13 +122,7 @@ describe("agents set-identity command", () => {
     await fs.mkdir(workspace, { recursive: true });
     await fs.writeFile(
       path.join(workspace, "IDENTITY.md"),
-      [
-        "- Name: Ozoo",
-        "- Theme: OZZO",
-        "- Emoji: :)",
-        "- Avatar: avatars/ozzo.png",
-        "",
-      ].join("\n"),
+      ["- Name: Ozoo", "- Theme: OZZO", "- Emoji: :)", "- Avatar: avatars/ozzo.png", ""].join("\n"),
       "utf-8",
     );
 
