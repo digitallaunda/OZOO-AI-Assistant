@@ -1,0 +1,70 @@
+# Cursor AI Agent Rules for OZOO Project
+
+## Project Context
+This is OZOO - a Personal AI Assistant supporting 23 messaging platforms with multi-agent routing, local-first gateway, and native apps for macOS, iOS, and Android.
+
+## Current Status
+- **Phase 1 Complete**: Security & Stability (58% completion toward 95% goal)
+- **Next Phase**: Code Quality & Refactoring
+
+## Code Guidelines
+
+### Files to Focus On
+1. **Large Files Needing Refactoring**:
+   - `src/memory/manager.ts` (2232 LOC) - Split into 4 modules
+   - `src/infra/exec-approvals.ts` (1267 LOC) - Split into 3 modules
+   - `src/tts/tts.ts` (1481 LOC) - Refactor to provider pattern
+
+2. **Type Safety Issues**:
+   - 29 files with `as any` casts need proper typing
+
+### Code Standards
+- **Max file size**: 500 LOC (guideline)
+- **TypeScript**: Strict mode, avoid `any`
+- **Error handling**: Always use try-catch for async operations
+- **Validation**: Use Zod schemas for external data (JSON.parse, env vars)
+- **Security**: Validate all inputs, especially shell commands and user data
+
+### Recently Completed (Don't Redo)
+✅ Docker command injection fixes
+✅ XSS vulnerabilities patched
+✅ Environment variable validation with Zod
+✅ WebSocket security hardening
+✅ Global error handlers
+✅ SQLite WAL mode enabled
+✅ JSON.parse validation
+✅ Promise chains → async/await
+
+### Testing
+- Framework: Vitest
+- Coverage target: 85%
+- Run: `pnpm test`
+
+### Commands
+```bash
+pnpm install       # Install dependencies
+pnpm build         # Build TypeScript
+pnpm lint          # Lint code
+pnpm test          # Run tests
+pnpm ozzo          # Run CLI
+```
+
+## Architecture Notes
+- **Gateway**: WebSocket control plane (ws://localhost:18789)
+- **Channels**: 23 messaging platforms (WhatsApp, Telegram, Slack, etc.)
+- **Agents**: Pi-based agent orchestration
+- **Skills**: 52 bundled skills
+- **Extensions**: 29 plugin extensions
+
+## Security Guidelines
+- Never commit real API keys or credentials
+- Use `.env` for local secrets
+- Validate all external inputs
+- Follow OWASP guidelines
+
+## Current Priority
+**Phase 2: Code Quality & Refactoring**
+- Refactor large files
+- Eliminate `as any` casts
+- Improve type safety
+- Standardize patterns
