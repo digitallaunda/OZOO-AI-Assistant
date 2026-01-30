@@ -25,7 +25,7 @@ export type InlineActionResult =
       abortedLastRun: boolean;
     };
 
-function extractTextFromToolResult(result: any): string | null {
+function extractTextFromToolResult(result: unknown): string | null {
   if (!result || typeof result !== "object") return null;
   const content = (result as { content?: unknown }).content;
   if (typeof content === "string") {
@@ -187,7 +187,7 @@ export async function handleInlineActions(params: {
           command: rawArgs,
           commandName: skillInvocation.command.name,
           skillName: skillInvocation.command.skillName,
-        } as any);
+        });
         const text = extractTextFromToolResult(result) ?? "✅ Done.";
         typing.cleanup();
         return { kind: "reply", reply: { text } };
