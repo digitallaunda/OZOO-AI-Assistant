@@ -774,7 +774,7 @@ async function collectChannelSecurityFindings(params: {
 
       if (!hasAnySenderAllowlist) {
         const providerSetting = (telegramCfg.commands as { nativeSkills?: unknown } | undefined)
-          ?.nativeSkills as any;
+          ?.nativeSkills as boolean | "auto" | undefined;
         const skillsEnabled = resolveNativeSkillsEnabled({
           providerId: "telegram",
           providerSetting,
