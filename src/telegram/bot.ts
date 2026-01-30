@@ -411,8 +411,8 @@ export function createTelegramBot(opts: TelegramBotOptions) {
       senderLabel = senderLabel || "unknown";
 
       // Extract forum thread info (similar to message processing)
-      const messageThreadId = (reaction as any).message_thread_id;
-      const isForum = (reaction.chat as any).is_forum === true;
+      const messageThreadId = "message_thread_id" in reaction ? (reaction as { message_thread_id?: number }).message_thread_id : undefined;
+      const isForum = "chat" in reaction && reaction.chat && typeof reaction.chat === "object" && "is_forum" in reaction.chat ? (reaction.chat as { is_forum?: boolean }).is_forum === true : false;
       const resolvedThreadId = resolveTelegramForumThreadId({
         isForum,
         messageThreadId,
